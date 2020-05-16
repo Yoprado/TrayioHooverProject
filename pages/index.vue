@@ -9,18 +9,18 @@
         To Get Started, Click On An Option Below
       </h2>
       <div class="links">
-        <b-button class="defaultButton">Use Default File</b-button>
+        <b-button class="defaultButton" :to="{ name: 'result' }" >Use Default File</b-button>
         <label for="file-upload" class="custom-file-upload">
           <i class="fa fa-cloud-upload"></i> Upload Custom File
         </label>
-        <b-form-file v-model="file" id="file-upload" plain></b-form-file>
+        <b-form-file v-model="file" id="file-upload" ref="myFile"  plain></b-form-file>
       </div>
       <b-form-checkbox
         class="visualCheckbox"
         v-model="status"
         name="checkbox-1"
-        value="accepted"
-        unchecked-value="not_accepted"
+        value="true"
+        unchecked-value="false"
       >
         Visualize Hoover Activity
       </b-form-checkbox>
@@ -38,8 +38,24 @@ export default {
   data () {
     return {
       file: null,
-      status: 'not_accepted'
+      status: false,
+      fileInput: []
     }
+  },
+  watch: {
+    file (val) {
+      const reader = new FileReader()
+      reader.readAsText(val, 'UTF-8')
+      reader.onload = (evt) => {
+        const text = evt.target.result
+        this.fileInput = text.split(/\r?\n/)
+      }
+      reader.onerror = (evt) => {
+        console.error(evt)
+      }
+    }
+  },
+  methods: {
   }
 }
 </script>
