@@ -1,0 +1,21 @@
+:root {
+  --pink: #FF1F5F;
+  --main-bg-color: #fff;
+  --button-color: #0DBF73;
+  --brand-text-dark: #1A1A3B;
+  --button-color-selected: #37996F;
+}
+
+
+html {
+  background-color: var(--main-bg-color);
+  font-family: "Brown","Helvetica",sans-serif;
+  text-decoration: none;
+}
+
+body {
+  padding-top:5em;
+  background-color: var(--main-bg-color);
+  font-family: "Brown","Helvetica",sans-serif;
+  text-decoration: none;
+}
