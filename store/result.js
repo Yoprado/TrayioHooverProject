@@ -86,6 +86,8 @@ export const mutations = {
             state.dirtPatchSet.delete(newCoords.toString())
           }
         }
+      } else {
+        state.hooverPositions.push(state.currentHooverPos)
       }
     }
   },
