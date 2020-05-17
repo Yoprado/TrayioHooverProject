@@ -19,3 +19,15 @@ body {
   font-family: "Brown","Helvetica",sans-serif;
   text-decoration: none;
 }
+
+.defaultButton{
+  background-color: var(--button-color);
+  color: #ffffff;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  font-family: Akkurat, Helvetica, sans-serif;
+}
+.defaultButton:hover{
+  background-color: var(--button-color-selected);
+}
