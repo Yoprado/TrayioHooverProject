@@ -78,7 +78,6 @@ export const mutations = {
     for (let i = 0; i < state.drivingInstructions.length; i++) {
       const newCoords = updateCoords(state.drivingInstructions[i], state.currentHooverPos)
       if (withinBounds(newCoords, state.dimensions)) {
-        console.log(newCoords)
         state.currentHooverPos = newCoords
         state.hooverPositions.push(newCoords)
         if (state.dirtPatchSet.size !== 0) {
