@@ -69,7 +69,8 @@ export default {
     ...mapActions({
       setInstructions: 'result/setInstructions',
       setVisualizeBoolean: 'result/setVisualizeBoolean',
-      resetResultState: 'result/resetResultState'
+      resetResultState: 'result/resetResultState',
+      changeFileLoaded: 'result/changeFileLoaded'
     }),
     loadDefaultData () {
       this.fileInput = this.defaultText.split(/\r?\n/)
@@ -79,6 +80,7 @@ export default {
   },
   mounted () {
     this.resetResultState()
+    this.changeFileLoaded()
   }
 }
 </script>

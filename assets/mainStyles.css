@@ -31,3 +31,18 @@ body {
 .defaultButton:hover{
   background-color: var(--button-color-selected);
 }
+
+#container {
+  display: grid;
+  grid-gap: 1em;
+  margin-left: 3em;
+  margin-right: 3em;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.grid-item {
+  padding: 1em;
+  border: 1px solid var(--button-color);
+  text-align: center;
+}

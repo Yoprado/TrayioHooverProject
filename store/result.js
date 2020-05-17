@@ -39,7 +39,8 @@ const getDefaultState = () => {
     hooverPositions: [],
     drivingInstructions: [],
     cleanedPatchSet: new Set(),
-    visualize: false
+    visualize: false,
+    fileLoadedFromMain: false
   }
 }
 
@@ -90,6 +91,9 @@ export const mutations = {
   },
   resetResultState (state) {
     Object.assign(state, getDefaultState())
+  },
+  changeFileLoaded (state) {
+    state.fileLoadedFromMain = true
   }
 }
 export const actions = {
@@ -100,9 +104,12 @@ export const actions = {
     context.commit('runInstructions')
   },
   setVisualizeBoolean (context, visBool) {
-    context.commit('setVisualizationBoolean', visBool)
+    context.commit('setVisualizeBoolean', visBool)
   },
   resetResultState ({ commit }) {
     commit('resetResultState')
+  },
+  changeFileLoaded ({ commit }) {
+    commit('changeFileLoaded')
   }
 }
