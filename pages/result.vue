@@ -74,7 +74,7 @@
     </client-only>
     <b-container>
       <b-row class="justify-content-md-center">
-        <b-button v-if="!startRun" class="defaultButton" @click="animateData">Run Hoover</b-button>
+        <b-button v-if="!startRun" class="defaultButton groupButton" @click="animateData">Run Hoover</b-button>
         <b-button :disabled="(counter===0)" v-if="startRun" class="defaultButton groupButton" @click="prevAction">Previous Action</b-button>
         <b-button :disabled="(counter>(this.dataPoints.length-2))" v-if="startRun" class="defaultButton groupButton" @click="nextAction">Next Action</b-button>
       </b-row>
@@ -311,23 +311,20 @@ export default {
 
 <style scoped>
  .bar-chart {
-  width: 48%;
-  height: 48%;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
   margin-top: 30px;
-  margin: auto;
+  margin:auto;
 }
 .container{
   min-height: auto;
 }
 .defaultButton{
-  margin-right:5px;
+  margin-right:auto !important;
 }
  button[disabled] {
       pointer-events: none;
-}
-.jumbotron {
-  background: var(--blue-dark);
-  color: white;
 }
 .navbarTray{
   font-size: 2em;
