@@ -61,6 +61,7 @@ export const mutations = {
       state.hooverInstructions = instructions
       state.dimensions = convertStringToCoordinates(instructions[0])
       state.hooverPositions.push(convertStringToCoordinates(instructions[1]))
+      state.currentHooverPos = convertStringToCoordinates(instructions[1])
       state.drivingInstructions = instructions[2].split('')
     } else {
       state.hooverInstructions = instructions
@@ -77,11 +78,14 @@ export const mutations = {
     for (let i = 0; i < state.drivingInstructions.length; i++) {
       const newCoords = updateCoords(state.drivingInstructions[i], state.currentHooverPos)
       if (withinBounds(newCoords, state.dimensions)) {
+        console.log(newCoords)
         state.currentHooverPos = newCoords
         state.hooverPositions.push(newCoords)
-        if (state.dirtPatchSet.has(newCoords.toString())) {
-          state.cleanedPatchSet.add(newCoords.toString())
-          state.dirtPatchSet.delete(newCoords.toString())
+        if (state.dirtPatchSet.size !== 0) {
+          if (state.dirtPatchSet.has(newCoords.toString())) {
+            state.cleanedPatchSet.add(newCoords.toString())
+            state.dirtPatchSet.delete(newCoords.toString())
+          }
         }
       }
     }
