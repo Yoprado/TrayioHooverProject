@@ -17,15 +17,6 @@
         </label>
         <b-form-file v-model="file" id="file-upload" ref="myFile"  plain></b-form-file>
       </div>
-      <b-form-checkbox
-        v-model="status"
-        class="visualCheckbox"
-        name="checkbox-1"
-        value="true"
-        unchecked-value="false"
-      >
-        Visualize Hoover Activity
-      </b-form-checkbox>
     </div>
   </div>
 </template>
@@ -42,7 +33,6 @@ export default {
   data () {
     return {
       file: null,
-      status: false,
       fileInput: [],
       defaultText: txt
     }
@@ -57,7 +47,6 @@ export default {
         const text = evt.target.result
         this.fileInput = text.split(/\r?\n/)
         this.setInstructions(this.fileInput)
-        this.setVisualizeBoolean(this.status)
         this.$router.push('result')
       }
       reader.onerror = (evt) => {
@@ -68,14 +57,12 @@ export default {
   methods: {
     ...mapActions({
       setInstructions: 'result/setInstructions',
-      setVisualizeBoolean: 'result/setVisualizeBoolean',
       resetResultState: 'result/resetResultState',
       changeFileLoaded: 'result/changeFileLoaded'
     }),
     loadDefaultData () {
       this.fileInput = this.defaultText.split(/\r?\n/)
       this.setInstructions(this.fileInput)
-      this.setVisualizeBoolean(this.status)
     }
   },
   mounted () {

@@ -8,6 +8,7 @@ function convertStringToCoordinates (str) {
   const coords = str.split(' ').map(str => parseInt(str))
   return coords
 }
+
 function updateCoords (cardinal, coord) {
   const moves = {
     N: coord => [coord[0], coord[1] + 1],
@@ -39,7 +40,6 @@ const getDefaultState = () => {
     hooverPositions: [],
     drivingInstructions: [],
     cleanedPatchSet: new Set(),
-    visualize: false,
     fileLoadedFromMain: false
   }
 }
@@ -73,9 +73,6 @@ export const mutations = {
       state.drivingInstructions = instructions[instructions.length - 1].split('')
     }
   },
-  setVisualizeBoolean (state, visBool) {
-    state.visualize = visBool === 'true'
-  },
   runInstructions (state) {
     for (let i = 0; i < state.drivingInstructions.length; i++) {
       const newCoords = updateCoords(state.drivingInstructions[i], state.currentHooverPos)
@@ -102,9 +99,6 @@ export const actions = {
   },
   runInstructions (context) {
     context.commit('runInstructions')
-  },
-  setVisualizeBoolean (context, visBool) {
-    context.commit('setVisualizeBoolean', visBool)
   },
   resetResultState ({ commit }) {
     commit('resetResultState')
