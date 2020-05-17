@@ -16,7 +16,7 @@
           img-src="roomba.png"
           img-alt="Roomba"
           img-top
-          style="max-width: 20rem;margin:0 auto;"
+          style="max-width: 14rem;margin:0 auto;"
           class="mb-2"
         >
           <b-card-text>
@@ -26,9 +26,9 @@
         <b-card
           title="Patches of Dirt Cleaned"
           img-src="dust.png"
-          img-alt="Roomba"
+          img-alt="dust"
           img-top
-          style="max-width: 20rem;margin:0 auto;"
+          style="max-width: 14rem;margin:0 auto;"
           class="mb-2"
         >
           <b-card-text>
@@ -38,9 +38,9 @@
         <b-card
           title="Current Roomba Position"
           img-src="journey.png"
-          img-alt="Roomba"
+          img-alt="journey"
           img-top
-          style="max-width: 20rem;margin:0 auto;"
+          style="max-width: 14rem;margin:0 auto;"
           class="mb-2"
         >
           <b-card-text v-if="startRun">
@@ -48,6 +48,21 @@
           </b-card-text>
           <b-card-text v-if="!startRun">
             Run Hoover To Start Position Finding
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="Next Cardinal Move"
+          img-src="compass.png"
+          img-alt="compass"
+          img-top
+          style="max-width: 14rem;margin:0 auto;"
+          class="mb-2"
+        >
+          <b-card-text v-if="startRun">
+            {{ drivingInstructions[counter] }}
+          </b-card-text>
+          <b-card-text v-if="!startRun">
+            Run Hoover To Give Cardinal Direction
           </b-card-text>
         </b-card>
       </b-card-group>
@@ -96,7 +111,8 @@ export default {
       dirtPatchSet: state => state.result.dirtPatchSet,
       cleanedPatchSet: state => state.result.cleanedPatchSet,
       dims: state => state.result.dimensions,
-      fileLoadedFromMain: state => state.result.fileLoadedFromMain
+      fileLoadedFromMain: state => state.result.fileLoadedFromMain,
+      drivingInstructions: state => state.result.drivingInstructions
     })
   },
   mounted () {
@@ -134,10 +150,10 @@ export default {
       },
       layout: {
         padding: {
-          left: 20,
-          right: 20,
-          top: 20,
-          bottom: 20
+          left: 30,
+          right: 30,
+          top: 30,
+          bottom: 30
         }
       },
       tooltips: {
@@ -295,8 +311,8 @@ export default {
 
 <style scoped>
  .bar-chart {
-  width: 50%;
-  height: 50%;
+  width: 48%;
+  height: 48%;
   margin-top: 30px;
   margin: auto;
 }
@@ -327,5 +343,9 @@ h4.card-title {
   text-align: center;
   font-weight: 900;
   font-size: 1.2rem;
+}
+.card-deck {
+  margin-left:0;
+  margin-right:0;
 }
 </style>

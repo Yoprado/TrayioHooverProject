@@ -127,38 +127,7 @@ input[type="file"] {
   border: 1px solid var(--button-color-selected);
   color: #ffffff;
 }
-.visualCheckbox{
-  margin-top:.75rem;
-}
-.wrapper {
-  position: relative;
-  padding-top: calc(100 / 100 * 25%);
-}
-.wrapper img {
-  position: absolute;
-  left: 37%;
-  max-width: 100%;
-  height: auto;
-}
-
-@media screen and (max-width: 990px) {
-  .wrapper {
-  position: relative;
-  padding-top: calc(100 / 100 * 35%);
-}
-}
-
-@media screen and (max-width: 767px) {
-  .wrapper {
-  position: relative;
-  padding-top: calc(100 / 100 * 45%);
-}
-.wrapper img {
-  position: absolute;
-  top: 0;
-  left: 33%;
-  max-width: 100%;
-  height: auto;
-}
+h1.title {
+  padding-top: 3em;
 }
 </style>

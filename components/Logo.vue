@@ -24,6 +24,7 @@ export default {
 <style scoped>
 .trayimage{
   width:15em;
+  height: auto
 }
 .v-lazy-image {
   filter: blur(20px);
