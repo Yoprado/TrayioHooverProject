@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <b-container>
     <div>
       <div class="wrapper">
         <logo />
@@ -18,7 +18,7 @@
         <b-form-file v-model="file" id="file-upload" ref="myFile"  plain></b-form-file>
       </div>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -72,10 +72,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+  margin: 5em auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,12 +132,10 @@ input[type="file"] {
 }
 .wrapper {
   position: relative;
-  height: 0;
   padding-top: calc(100 / 100 * 25%);
 }
 .wrapper img {
   position: absolute;
-  top: 0;
   left: 37%;
   max-width: 100%;
   height: auto;
@@ -147,7 +144,6 @@ input[type="file"] {
 @media screen and (max-width: 990px) {
   .wrapper {
   position: relative;
-  height: 0;
   padding-top: calc(100 / 100 * 35%);
 }
 }
@@ -155,7 +151,6 @@ input[type="file"] {
 @media screen and (max-width: 767px) {
   .wrapper {
   position: relative;
-  height: 0;
   padding-top: calc(100 / 100 * 45%);
 }
 .wrapper img {

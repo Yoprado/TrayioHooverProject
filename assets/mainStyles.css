@@ -4,6 +4,7 @@
   --button-color: #0DBF73;
   --brand-text-dark: #1A1A3B;
   --button-color-selected: #37996F;
+  --blue-dark: #0a0d36;
 }
 
 
@@ -14,7 +15,6 @@ html {
 }
 
 body {
-  padding-top:5em;
   background-color: var(--main-bg-color);
   font-family: "Brown","Helvetica",sans-serif;
   text-decoration: none;

@@ -1,22 +1,68 @@
 <template>
   <div>
     <div>
-      {{ content }}
-      {{ currentHooverPos }}
-      {{ cleanedPatchSet.size}}
-      {{ hooverPositions }}
+      <b-navbar variant="faded" type="light">
+        <b-navbar-brand :to="{ name: 'index' }" class="navbarTray">
+          <img src="trayio.png" class="d-inline-block align-top" alt="TrayioLogo">
+          Hoover Run Results
+        </b-navbar-brand>
+        <b-button :to="{ name: 'index' }" class="defaultButton">Reset</b-button>
+      </b-navbar>
+    </div>
+    <div>
+      <b-card-group deck>
+        <b-card
+          title="End Hoover Position"
+          img-src="roomba.png"
+          img-alt="Roomba"
+          img-top
+          style="max-width: 20rem;margin:0 auto;"
+          class="mb-2"
+        >
+          <b-card-text>
+            {{ currentHooverPos }}
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="Patches of Dirt Cleaned"
+          img-src="dust.png"
+          img-alt="Roomba"
+          img-top
+          style="max-width: 20rem;margin:0 auto;"
+          class="mb-2"
+        >
+          <b-card-text>
+            {{ cleanedPatchSet.size }}
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="Current Roomba Position"
+          img-src="journey.png"
+          img-alt="Roomba"
+          img-top
+          style="max-width: 20rem;margin:0 auto;"
+          class="mb-2"
+        >
+          <b-card-text v-if="startRun">
+            {{ hooverPositions[counter] }}
+          </b-card-text>
+          <b-card-text v-if="!startRun">
+            Run Hoover To Start Position Finding
+          </b-card-text>
+        </b-card>
+      </b-card-group>
     </div>
     <client-only>
       <div class="bar-chart">
         <Scatterplot v-if="loaded" :chartData="ChartData" :options="options" />
       </div>
     </client-only>
-        <b-container>
-    <b-row class="justify-content-md-center">
-    <b-button v-if="!startRun" class="defaultButton" @click="animateData">Run Hoover</b-button>
-    <b-button :disabled="(counter===0)" v-if="startRun" class="defaultButton groupButton" @click="prevAction">Previous Action</b-button>
-    <b-button :disabled="(counter>(this.dataPoints.length-2))" v-if="startRun" class="defaultButton groupButton" @click="nextAction">Next Action</b-button>
-    </b-row>
+    <b-container>
+      <b-row class="justify-content-md-center">
+        <b-button v-if="!startRun" class="defaultButton" @click="animateData">Run Hoover</b-button>
+        <b-button :disabled="(counter===0)" v-if="startRun" class="defaultButton groupButton" @click="prevAction">Previous Action</b-button>
+        <b-button :disabled="(counter>(this.dataPoints.length-2))" v-if="startRun" class="defaultButton groupButton" @click="nextAction">Next Action</b-button>
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -259,5 +305,27 @@ export default {
 }
 .defaultButton{
   margin-right:5px;
+}
+ button[disabled] {
+      pointer-events: none;
+}
+.jumbotron {
+  background: var(--blue-dark);
+  color: white;
+}
+.navbarTray{
+  font-size: 2em;
+}
+.navbarTray img {
+  width: 1.5em;
+}
+p.card-text {
+  text-align: center;
+  font-weight: 600;
+}
+h4.card-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2rem;
 }
 </style>
