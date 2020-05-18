@@ -40,6 +40,7 @@ export default {
   computed: {
   },
   watch: {
+    // Watches for a change in file upload. Loads the file that was uploaded from the user and proceeds to change state of results to move to next page.
     file (val) {
       const reader = new FileReader()
       reader.readAsText(val, 'UTF-8')
@@ -54,20 +55,21 @@ export default {
       }
     }
   },
+  mounted () {
+    this.resetResultState()
+    this.changeFileLoaded()
+  },
   methods: {
     ...mapActions({
       setInstructions: 'result/setInstructions',
       resetResultState: 'result/resetResultState',
       changeFileLoaded: 'result/changeFileLoaded'
     }),
+    // If default file is clicked, runs this function. This loads the input.txt file from the orignal assignemnt.
     loadDefaultData () {
       this.fileInput = this.defaultText.split(/\r?\n/)
       this.setInstructions(this.fileInput)
     }
-  },
-  mounted () {
-    this.resetResultState()
-    this.changeFileLoaded()
   }
 }
 </script>

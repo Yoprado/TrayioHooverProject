@@ -116,6 +116,8 @@ export default {
     })
   },
   mounted () {
+    // runs action and mutation necessary to run hoover through all the cardinal direction it was given from the input file.
+    // Data then gets loaded to the graph from the results of the run and gets displayed.
     this.runInstructions()
     this.dirtyPatchPoints = (Array.from(this.dirtPatchSet)).map(coord => this.convertSetStringToCoordinates(coord))
     this.cleanPatchPoints = (Array.from(this.cleanedPatchSet)).map(coord => this.convertSetStringToCoordinates(coord))
@@ -207,7 +209,7 @@ export default {
     this.loaded = true
   },
   middleware ({ store, redirect }) {
-    // If the user is not authenticated
+    // If the user did not load a file, redirect to index
     if (!store.state.result.fileLoadedFromMain) {
       return redirect('/')
     }
@@ -220,6 +222,7 @@ export default {
       const coords = str.split(',').map(str => parseInt(str))
       return coords
     },
+    // function that gets called when you want to play through the graph animation. It loads additional data on the graph.
     animateData () {
       this.startRun = true
       this.ChartData = {
@@ -245,6 +248,7 @@ export default {
         ]
       }
     },
+    // function that is used when clicking on the next button of the graph. This moves the hoover by updating the graph data.
     nextAction () {
       this.counter++
       const newArr = []
@@ -275,6 +279,7 @@ export default {
         ]
       }
     },
+    // function that is used when clicking on the previous button of the graph. This moves the hoover by updating the graph data.
     prevAction () {
       this.counter--
       const newArr = []
