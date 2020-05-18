@@ -11,7 +11,7 @@ Pre-requisites to run this app are:
 * [Yarn](https://classic.yarnpkg.com/en/)
 * [Node](https://nodejs.org/en/)
 
-Run Instructions in dev mode:
+Run web app instructions in dev mode:
 
 ```bash
 # install dependencies
@@ -27,4 +27,4 @@ Since this is a webapp based on vue.js and nuxt.js, javascript is scattered thro
 
 * [store/result.js](https://github.com/Yoprado/TrayioHooverProject/blob/master/store/result.js): Store that holds the mutations and state variables used across my index and results vue components. In other words, these hold the main variables and functions that run the hoover logic and are heavily commented.
 * [pages/index.vue](https://github.com/Yoprado/TrayioHooverProject/blob/master/pages/index.vue): Index vue component that is the landing page of this site. This page is mainly used to upload instruction files for the hoover or to load the default file. 
-* [pages/result.vue](https://github.com/Yoprado/TrayioHooverProject/blob/master/pages/result.vue): Result vue component that visualizes the results of the instruction uploaded for the hoover. This comes in the form of cards that display the results as well as a chart that animates step by step instructions of the hoover run. 
+* [pages/result.vue](https://github.com/Yoprado/TrayioHooverProject/blob/master/pages/result.vue): Result vue component that visualizes the results of the instructions uploaded for the hoover. This comes in the form of cards that display the results as well as a chart that animates step by step instructions of the hoover run. 
