@@ -17,7 +17,7 @@
     "bootstrap-vue": "^2.0.0",
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.18.1",
     "vue-chartjs": "^3.5.0"
   },
   "devDependencies": {
